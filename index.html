@@ -1,0 +1,564 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Anjo Solidário</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f7f1e8;
+      color: #2b2b2b;
+    }
+
+    header {
+      background: #073763;
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      border-bottom: 3px solid #d96b1c;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .logo span {
+      color: #ff7a1a;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      min-height: 430px;
+      background: linear-gradient(rgba(255,240,220,0.75), rgba(255,240,220,0.75)), url("imagem-fundo.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 40px;
+    }
+
+    .hero-texto {
+      max-width: 520px;
+    }
+
+    .hero-texto h1 {
+      font-size: 52px;
+      color: #073763;
+      font-family: Georgia, serif;
+    }
+
+    .hero-texto h1 span {
+      color: #c9571b;
+    }
+
+    .hero-texto p {
+      font-size: 22px;
+      margin: 20px 0;
+    }
+
+    .botao {
+      display: inline-block;
+      background: #073763;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .destaque {
+      text-align: center;
+    }
+
+    .destaque h2 {
+      color: #ff7a1a;
+      font-size: 48px;
+      text-shadow: 2px 2px 5px #5c2d0c;
+    }
+
+    .destaque img {
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 5px 18px #0005;
+    }
+
+    section {
+      padding: 40px 10%;
+    }
+
+    .titulo {
+      color: #073763;
+      font-size: 32px;
+      margin-bottom: 20px;
+      font-family: Georgia, serif;
+    }
+
+    .sobre-area {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px #0002;
+      text-align: center;
+    }
+
+    .card img {
+      width: 90px;
+      margin-bottom: 10px;
+    }
+
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .produto {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px #0002;
+      overflow: hidden;
+    }
+
+    .produto img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .produto-info {
+      padding: 15px;
+    }
+
+    .produto h3 {
+      color: #073763;
+      margin-bottom: 8px;
+    }
+
+    .produto p {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .produto a {
+      background: #d95f18;
+      color: white;
+      padding: 10px 15px;
+      display: inline-block;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .cadastro {
+      background: linear-gradient(90deg, #073763, #d95f18);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .cadastro form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cadastro input {
+      padding: 14px;
+      border: none;
+      border-radius: 6px;
+      width: 220px;
+    }
+
+    .cadastro button {
+      background: #073763;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .contatos-vendedores {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #ffffff, #e3f2fd, #fff3e0);
+    }
+
+    .contatos-vendedores h2 {
+      font-size: 34px;
+      color: #073763;
+      margin-bottom: 10px;
+      font-family: Georgia, serif;
+    }
+
+    .contatos-vendedores .subcontato {
+      font-size: 18px;
+      color: #d95f18;
+      margin-bottom: 35px;
+      font-weight: bold;
+    }
+
+    .vendedores-box {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .vendedor-card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      width: 285px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: 0.3s;
+      border: 2px solid #ffe0b2;
+    }
+
+    .vendedor-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.22);
+    }
+
+    .foto-vendedora {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #ff7a1a;
+      margin-bottom: 12px;
+    }
+
+    .vendedor-card h3 {
+      color: #073763;
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .status {
+      color: green;
+      font-weight: bold;
+      animation: piscar 1s infinite;
+      margin-bottom: 8px;
+    }
+
+    .vendedor-card p {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .vendedor-card a {
+      display: inline-block;
+      margin-top: 10px;
+      background: #25d366;
+      color: white;
+      padding: 13px 20px;
+      border-radius: 28px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(37,211,102,0.4);
+    }
+
+    .vendedor-card a:hover {
+      background: #1ebe5d;
+      transform: scale(1.05);
+    }
+
+    @keyframes piscar {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    footer {
+      background: #3b2415;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      background: #25d366;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      color: white;
+      font-size: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 12px #0005;
+      z-index: 999;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 20px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-texto h1 {
+        font-size: 38px;
+      }
+
+      .sobre-area,
+      .produtos {
+        grid-template-columns: 1fr;
+      }
+
+      .cadastro {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cadastro input {
+        width: 100%;
+      }
+
+      .cadastro form {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Projeto <span>Anjo Solidário</span></div>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#projeto">Sobre o Projeto</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#cadastro">Cadastro</a>
+    <a href="#contatos">Contato</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-texto">
+    <h1>Fé que transforma,<br><span>amor que ajuda!</span></h1>
+    <p>Artigos religiosos que evangelizam, decoram e ajudam vidas.</p>
+    <a class="botao" href="#produtos">Conheça nossos produtos</a>
+  </div>
+
+  <div class="destaque">
+    <h2>DESTAQUE</h2>
+    <img src="produto-destaque.jpg" alt="Produto em destaque">
+  </div>
+</section>
+
+<section id="projeto">
+  <h2 class="titulo">Sobre o Projeto</h2>
+
+  <div class="sobre-area">
+    <div>
+      <p>
+        O <strong>Projeto Anjo Solidário</strong> nasceu com o propósito de unir fé,
+        amor e solidariedade.
+      </p>
+      <br>
+      <p>
+        Aqui, cada artigo religioso vendido é também uma forma de ajudar pessoas
+        e fortalecer uma corrente do bem.
+      </p>
+      <br>
+      <p>
+        Parte do valor adquirido com as vendas será destinado a instituições que
+        realizam trabalhos importantes na sociedade.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="missao-pelicano.png" alt="Missão Pelicano">
+      <h3>Missão Pelicano</h3>
+      <p>Acolhimento, esperança e cuidado para quem mais precisa.</p>
+    </div>
+
+    <div class="card">
+      <img src="associacao.png" alt="Associação de Deficientes Físicos do Paraná">
+      <h3>Associação de Deficientes Físicos do Paraná</h3>
+      <p>Inclusão, dignidade e qualidade de vida.</p>
+    </div>
+  </div>
+</section>
+
+<section id="produtos">
+  <h2 class="titulo">Artigos Religiosos</h2>
+
+  <div class="produtos">
+
+    <div class="produto">
+      <img src="produto1.jpg" alt="Quadro São Miguel">
+      <div class="produto-info">
+        <h3>Quadro São Miguel</h3>
+        <p>Proteção, fé e bênção para seu lar.</p>
+        <a href="https://wa.me/c/554599892692" target="_blank">Ver detalhes</a>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="produto2.jpg" alt="Mandala Nossa Senhora">
+      <div class="produto-info">
+        <h3>Mandala Nossa Senhora</h3>
+        <p>Uma peça especial de amor e devoção.</p>
+        <a href="https://wa.me/c/554599892692" target="_blank">Ver detalhes</a>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="produto3.jpg" alt="Oração de São Jorge">
+      <div class="produto-info">
+        <h3>Oração de São Jorge</h3>
+        <p>Força, coragem e proteção diária.</p>
+        <a href="https://wa.me/c/554599892692" target="_blank">Ver detalhes</a>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="produto4.jpg" alt="Livro Família Igreja Doméstica">
+      <div class="produto-info">
+        <h3>Livro Família</h3>
+        <p>Fortaleça sua fé e o amor em família.</p>
+        <a href="https://wa.me/c/554599892692" target="_blank">Ver detalhes</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cadastro" id="cadastro">
+  <div>
+    <h2>Faça seu cadastro</h2>
+    <p>Cadastre-se para receber novidades, lançamentos e participar dos sorteios.</p>
+  </div>
+
+  <form action="https://formsubmit.co/anjossolidarios.andressa@gmail.com" method="POST">
+    <input type="text" name="Nome" placeholder="Nome completo" required>
+    <input type="email" name="Email" placeholder="E-mail" required>
+    <input type="tel" name="WhatsApp" placeholder="WhatsApp" required>
+
+    <input type="hidden" name="_subject" value="Novo cadastro - Projeto Anjo Solidário">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <button type="submit">Enviar cadastro</button>
+  </form>
+</section>
+
+<section class="contatos-vendedores" id="contatos">
+  <h2>Fale com nossas vendedoras</h2>
+  <p class="subcontato">Escolha uma vendedora e chame direto no WhatsApp</p>
+
+  <div class="vendedores-box">
+
+    <div class="vendedor-card">
+      <img src="foto-antonia.jpg" alt="Foto da vendedora Antônia Julieta" class="foto-vendedora">
+      <h3>Antônia Julieta</h3>
+      <p class="status">🟢 Online agora</p>
+      <p>📞 (45) 9 9853-0802</p>
+      <a href="https://wa.me/5545998530802?text=Olá,%20vim%20pelo%20site%20Projeto%20Anjo%20Solidário%20e%20quero%20ver%20os%20produtos." target="_blank">
+        💬 Chamar no WhatsApp
+      </a>
+    </div>
+
+    <div class="vendedor-card">
+      <img src="foto-andressa.jpg" alt="Foto da vendedora Andressa Araujo" class="foto-vendedora">
+      <h3>Andressa Araujo</h3>
+      <p class="status">🟢 Online agora</p>
+      <p>📞 (45) 9 9989-2692</p>
+      <a href="https://wa.me/5545999892692?text=Olá,%20vim%20pelo%20site%20Projeto%20Anjo%20Solidário%20e%20quero%20ver%20os%20produtos." target="_blank">
+        💬 Chamar no WhatsApp
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div style="max-width: 900px; margin: auto; line-height: 1.6;">
+
+    <h3 style="margin-bottom: 15px; color: #ffb380;">
+      ✨ Faça parte do Projeto Anjo Solidário ✨
+    </h3>
+
+    <p>
+      Cada escolha sua pode transformar vidas. Ao adquirir nossos artigos religiosos,
+      você não leva apenas um produto cheio de fé e significado…
+      <strong>você também contribui com uma causa maior.</strong>
+    </p>
+
+    <p style="margin-top: 10px;">
+      💙 Parte de cada venda é destinada para ajudar:
+    </p>
+
+    <p>
+      🙏 <strong>Missão Pelicano</strong> – levando acolhimento e esperança<br>
+      ♿ <strong>Associação de Deficientes Físicos do Paraná</strong> – promovendo inclusão e dignidade
+    </p>
+
+    <p style="margin-top: 10px;">
+      Aqui, a fé se transforma em ação. E o amor ao próximo se torna realidade.
+    </p>
+
+    <p style="margin-top: 10px; font-weight: bold;">
+      🤝 Participe dessa corrente do bem!
+    </p>
+
+    <hr style="margin: 25px 0; border: 1px solid #ffffff33;">
+
+    <p>© 2026 Projeto Anjo Solidário - Todos os direitos reservados.</p>
+
+  </div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5545999892692" target="_blank">💬</a>
+
+</body>
+</html>
